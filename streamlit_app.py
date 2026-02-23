@@ -104,12 +104,10 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     st.markdown("""
-    **Design Loss %** = 25% (fixed)
-    <br>
-    **Environmental Loss %** = (Deemed Gen - Actual Gen) / Theoretical Max × 100
-    <br>
+    **Design Loss %** = 25% (fixed)<br><br>
+    **Environmental Loss %** = (Deemed Gen - Actual Gen) / Theoretical Max × 100<br><br>
     **Technical Loss %** = 100 - Design Loss % - Environmental Loss %
-    """)
+    """, unsafe_allow_html=True)
 
 with col2:
     st.latex(r"""
@@ -118,7 +116,7 @@ with col2:
     \text{Theoretical Max} = \text{Irradiance} \times \text{DC Capacity} \times 1.0
     \\[0.5em]
     \text{Deemed Gen} = \text{Irradiance} \times \text{DC Capacity} \times 0.75
-    """)
+    """, unsafe_allow_html=True)
 
 # Trend Chart
 st.markdown("### **📈 30-Day Trends**")
