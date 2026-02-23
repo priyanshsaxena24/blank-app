@@ -120,11 +120,30 @@ with col2:
 
 
 # Trend Chart
+# FIXED Trend Chart - Distinct Colors + Proper Labels
 st.markdown("### **📈 30-Day Trends**")
-fig_line = px.line(df.tail(30), x='Date', y=['Design_Loss_%', 'Environmental_Loss_%', 'Technical_Loss_%'],
-                   color_discrete_sequence=['#3b82f6', '#10b981', '#f59e0b'],
-                   title="Loss Trends Over Time")
+fig_line = px.line(
+    df.tail(30), 
+    x='Date', 
+    y=['Design_Loss_%', 'Environmental_Loss_%', 'Technical_Loss_%'],
+    labels={'value': 'Loss %', 'Date': 'Date'},
+    title="Loss Trends Over Time",
+    color_discrete_map={
+        'Design_Loss_%': '#3b82f6',      # Blue (stable, fixed)
+        'Environmental_Loss_%': '#10b981', # Green (weather, variable but normal)  
+        'Technical_Loss_%': '#ef4444'     # Red (actionable, concerning)
+    }
+)
+fig_line.update_layout(
+    height=500,
+    legend_title_text="Loss Type",
+    yaxis_title="Loss %",
+    xaxis_title="Date",
+    showlegend=True
+)
+fig_line.update_traces(line=dict(width=3))
 st.plotly_chart(fig_line, use_container_width=True)
+
 
 # Tooltips / Explanations
 with st.expander("ℹ️ **KPI Definitions**"):
