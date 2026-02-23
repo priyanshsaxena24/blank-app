@@ -104,8 +104,10 @@ col1, col2 = st.columns([1, 1])
 
 with col1:
     st.markdown("""
-    **Design Loss %** = 25% (fixed)<br><br>
-    **Environmental Loss %** = (Deemed Gen - Actual Gen) / Theoretical Max × 100<br><br>
+    **Design Loss %** = 25% (fixed)
+    \\[1em]
+    **Environmental Loss %** = (Deemed Gen - Actual Gen) / Theoretical Max × 100
+    \\[1em]
     **Technical Loss %** = 100 - Design Loss % - Environmental Loss %
     """)
 
