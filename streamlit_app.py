@@ -98,24 +98,26 @@ loss_table = pd.DataFrame({
 })
 st.dataframe(loss_table, use_container_width=True, hide_index=True)
 
-# Formula Breakdown
+
+# Formula Breakdown (COMPLETELY SAFE - No HTML)
 st.markdown("### **⚙️ Formula Breakdown**")
 col1, col2 = st.columns([1, 1])
 
 with col1:
-    st.markdown("**Design Loss %** = 25% (fixed)")
-    st.markdown("**Environmental Loss %** = (Deemed Gen - Actual Gen) / Theoretical Max × 100")
-    st.markdown("**Technical Loss %** = 100 - Design Loss % - Environmental Loss %")
-
+    st.markdown("**Design Loss %**")
+    st.markdown("= 25% (fixed)")
+    
+    st.markdown("**Environmental Loss %**")
+    st.markdown("= (Deemed Gen - Actual Gen) / Theoretical Max × 100")
 
 with col2:
-    st.latex(r"""
-    \text{Where:}
-    \\[1em]
-    \text{Theoretical Max} = \text{Irradiance} \times \text{DC Capacity} \times 1.0
-    \\[0.5em]
-    \text{Deemed Gen} = \text{Irradiance} \times \text{DC Capacity} \times 0.75
-    """, unsafe_allow_html=True)
+    st.markdown("**Technical Loss %**")
+    st.markdown("= 100 - Design Loss % - Environmental Loss %")
+    
+    st.markdown("**Where:**")
+    st.markdown("* Theoretical Max = Irradiance × DC Capacity × 1.0")
+    st.markdown("* Deemed Gen = Irradiance × DC Capacity × 0.75")
+
 
 # Trend Chart
 st.markdown("### **📈 30-Day Trends**")
